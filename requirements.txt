@@ -16,6 +16,9 @@ pydantic_core==2.33.2
 PyPDF2==3.0.1
 python-dotenv==1.1.1
 reportlab==4.4.3
+requests==2.32.4
 sniffio==1.3.1
+taskmanager-sdk @ git+ssh://git@github.com/brooksmcmillin/taskmanager-sdk.git@110e6be80386597f32209090447d721744a62529
 typing-inspection==0.4.1
 typing_extensions==4.14.1
+urllib3==2.5.0
