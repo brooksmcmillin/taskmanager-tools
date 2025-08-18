@@ -7,8 +7,20 @@ Description-Content-Type: text/markdown
 License-File: LICENSE
 Requires-Dist: python-dotenv
 Requires-Dist: reportlab
-Requires-Dist: taskmanager-sdk
 Requires-Dist: anthropic
+Requires-Dist: taskmanager-sdk@ git+https://github.com/brooksmcmillin/taskmanager-sdk.git
+Requires-Dist: PyPDF2
+Provides-Extra: dev
+Requires-Dist: mypy; extra == "dev"
+Requires-Dist: types-requests; extra == "dev"
+Requires-Dist: types-reportlab; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Requires-Dist: bandit[toml]; extra == "dev"
+Requires-Dist: pip-audit; extra == "dev"
+Requires-Dist: safety; extra == "dev"
+Requires-Dist: detect-secrets; extra == "dev"
 Dynamic: license-file
 
 # TaskManager Tools

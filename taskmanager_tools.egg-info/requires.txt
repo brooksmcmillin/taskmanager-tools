@@ -1,4 +1,17 @@
 python-dotenv
 reportlab
-taskmanager-sdk
 anthropic
+taskmanager-sdk@ git+https://github.com/brooksmcmillin/taskmanager-sdk.git
+PyPDF2
+
+[dev]
+mypy
+types-requests
+types-reportlab
+pytest
+pytest-cov
+ruff
+bandit[toml]
+pip-audit
+safety
+detect-secrets
