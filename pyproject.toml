@@ -11,8 +11,21 @@ requires-python = ">=3.10"
 dependencies = [
     "python-dotenv",
     "reportlab",
-    "taskmanager-sdk",
     "anthropic",
+    "taskmanager-sdk @ git+https://github.com/brooksmcmillin/taskmanager-sdk.git",
+]
+
+[project.optional-dependencies]
+dev = [
+    "mypy",
+    "types-requests",
+    "pytest",
+    "pytest-cov",
+    "ruff",
+    "bandit[toml]",
+    "pip-audit",
+    "safety",
+    "detect-secrets",
 ]
 
 [project.scripts]
