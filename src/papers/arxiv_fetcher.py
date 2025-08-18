@@ -61,7 +61,7 @@ class ArxivFetcher:
 
             # Extract title
             title_elem = entry.find("atom:title", ns)
-            title = title_elem.text.strip() if title_elem is not None else None
+            title = title_elem.text.strip() if title_elem is not None and title_elem.text is not None else None
 
             # Clean up title - remove newlines and extra spaces
             if title:

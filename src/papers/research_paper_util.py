@@ -1,12 +1,13 @@
-import anthropic
 import base64
 import io
 import json
 import os
-import PyPDF2
 import re
-
 from pathlib import Path
+
+import anthropic
+import PyPDF2
+from anthropic.types import TextBlock
 
 
 def analyze_paper_with_claude(paper_path: str) -> tuple[str, str]:
@@ -72,10 +73,13 @@ Important:
         )
 
         # Parse the response
-        response_text = message.content[0].text.strip()
-        result = json.loads(response_text)
+        if isinstance(message.content[0], TextBlock):
+            response_text = message.content[0].text.strip()
+            result = json.loads(response_text)
 
-        return result["classification"], result["title"]
+            return result["classification"], result["title"]
+        else:
+            return "", ""
 
     except Exception as e:
         print(f"Error analyzing paper with Claude: {e}")
