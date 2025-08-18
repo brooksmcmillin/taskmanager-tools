@@ -47,8 +47,8 @@ class RMAPI:
 
             # Make rmapi executable
             if rmapi_path.exists():
-                os.chmod(rmapi_path, 0o755)
-                print("Made rmapi executable")
+                os.chmod(rmapi_path, 0o700)
+                print("Made rmapi executable with owner-only permissions")
 
             # Clean up the tarball
             os.remove(tarball_path)
