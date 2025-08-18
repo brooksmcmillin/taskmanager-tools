@@ -1,3 +1,28 @@
+Metadata-Version: 2.4
+Name: taskmanager-tools
+Version: 0.1.0
+Summary: Tools for task management, paper fetching, and PDF generation
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: python-dotenv
+Requires-Dist: reportlab
+Requires-Dist: anthropic
+Requires-Dist: taskmanager-sdk@ git+https://github.com/brooksmcmillin/taskmanager-sdk.git
+Requires-Dist: PyPDF2
+Provides-Extra: dev
+Requires-Dist: mypy; extra == "dev"
+Requires-Dist: types-requests; extra == "dev"
+Requires-Dist: types-reportlab; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Requires-Dist: bandit[toml]; extra == "dev"
+Requires-Dist: pip-audit; extra == "dev"
+Requires-Dist: safety; extra == "dev"
+Requires-Dist: detect-secrets; extra == "dev"
+Dynamic: license-file
+
 # TaskManager Tools
 
 A comprehensive toolkit for task management, research paper organization, and daily planning. This package provides tools to manage tasks with the TaskManager API, intelligently upload papers to reMarkable tablets, and generate daily planner PDFs.

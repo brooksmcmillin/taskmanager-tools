@@ -123,7 +123,7 @@ def create_daily_planner(filename="daily_planner.pdf"):
         c.rect(right_x, y_pos, 12, 12)
         # Line for task
         c.line(right_x + 20, y_pos - 2, right_x + tasks_width - 0.3 * inch, y_pos - 2)
-    
+
         if len(tasks) > i:
             c.drawString(right_x + 20, y_pos, tasks[i]["title"])
 

@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "taskmanager-tools"
+version = "0.1.0"
+description = "Tools for task management, paper fetching, and PDF generation"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "python-dotenv",
+    "reportlab",
+    "anthropic",
+    "taskmanager-sdk @ git+https://github.com/brooksmcmillin/taskmanager-sdk.git",
+    "PyPDF2"
+]
+
+[project.optional-dependencies]
+dev = [
+    "mypy",
+    "types-requests",
+    "types-reportlab",
+    "pytest",
+    "pytest-cov",
+    "ruff",
+    "bandit[toml]",
+    "pip-audit",
+    "safety",
+    "detect-secrets",
+]
+
+[project.scripts]
+upload-paper = "src.papers.upload:main"
+generate-pdf = "src.pdf.generate_pdf:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.mypy]
+explicit_package_bases = true
+namespace_packages = true
+
+[[tool.mypy.overrides]]
+module = "rmapi.*"
+ignore_missing_imports = true
+
+[tool.bandit]
+targets = ["src"]
+exclude_dirs = ["tests", ".venv", "__pycache__"]
+skips = ["B101"]  # Skip assert_used test since we use asserts for type checking
+
+[tool.bandit.assert_used]
+skips = ["*/test_*.py", "*_test.py"]

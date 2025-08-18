@@ -1,0 +1,3 @@
+[console_scripts]
+generate-pdf = src.pdf.generate_pdf:main
+upload-paper = src.papers.upload:main
