@@ -13,6 +13,7 @@ dependencies = [
     "reportlab",
     "anthropic",
     "taskmanager-sdk @ git+https://github.com/brooksmcmillin/taskmanager-sdk.git",
+    "PyPDF2"
 ]
 
 [project.optional-dependencies]
