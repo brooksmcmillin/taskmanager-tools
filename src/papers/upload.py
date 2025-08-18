@@ -3,12 +3,15 @@ import sys
 
 from dotenv import load_dotenv
 
+from ..remarkable.rmapi import RMAPI
 from .arxiv_fetcher import ArxivFetcher, InvalidArxivId
 from .research_paper_util import shorten_title_for_filename
-from ..remarkable.rmapi import RMAPI
 
 # Load environment variables from .env file
 load_dotenv()
+
+class InvalidFileName(Exception): 
+    pass
 
 
 def handle_arxiv_paper(handler: ArxivFetcher, rmapi: RMAPI, dry_run: bool = False) -> bool:
@@ -30,6 +33,8 @@ def handle_arxiv_paper(handler: ArxivFetcher, rmapi: RMAPI, dry_run: bool = Fals
 
     # Download the paper
     output_path = handler.download_paper()
+    if not output_path:
+        raise InvalidFileName(f"No file name saved for paper {handler.document_id}")
 
     # Shorten the title for filename
     short_title = shorten_title_for_filename(title)
