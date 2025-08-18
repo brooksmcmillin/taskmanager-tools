@@ -36,6 +36,7 @@ def handle_arxiv_paper(handler: ArxivFetcher, rmapi: RMAPI, dry_run: bool = Fals
     print(f"Short title: {short_title}")
 
     rmapi.upload_paper(output_path, title, category, dry_run=dry_run)
+    return True
 
 def main() -> None:
     parser = argparse.ArgumentParser(
