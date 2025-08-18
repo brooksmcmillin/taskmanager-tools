@@ -1,0 +1,4 @@
+python-dotenv
+reportlab
+taskmanager-sdk
+anthropic

@@ -3,3 +3,4 @@
 rmapi
 
 .venv/
+__pycache__/
